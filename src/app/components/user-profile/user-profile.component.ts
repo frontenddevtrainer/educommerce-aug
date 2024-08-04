@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, signal, WritableSignal } from '@angular/core';
 
 @Component({
   selector: 'edu-user-profile',
@@ -10,11 +10,10 @@ import { Component } from '@angular/core';
 })
 export class UserProfileComponent {
 
-  isMenuShown: boolean = false
+  isMenuShown: WritableSignal<boolean> = signal(false);
 
   updateMenuState(){
-    this.isMenuShown = !this.isMenuShown;
-    console.log(this.isMenuShown);
+    this.isMenuShown.set(!this.isMenuShown());
   }
 
 }
