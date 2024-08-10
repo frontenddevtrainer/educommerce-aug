@@ -24,6 +24,11 @@ export class AppComponent {
 
   collectionList = this._collectionService.collections;
 
+  yearlyProfit : number = 423420594327587.44234;
+  yearlyProfitStr : string = "423,420,594,327,587.44"
+
+  currentDate : Date = new Date();
+
   images: string[] = [
     'https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-01.jpg',
     'https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-02.jpg',
