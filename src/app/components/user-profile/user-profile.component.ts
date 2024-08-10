@@ -10,7 +10,7 @@ import { Component, signal, ViewEncapsulation, WritableSignal } from '@angular/c
   encapsulation: ViewEncapsulation.Emulated
 })
 export class UserProfileComponent {
-
+  
   isMenuShown: WritableSignal<boolean> = signal(false);
 
   updateMenuState(){
