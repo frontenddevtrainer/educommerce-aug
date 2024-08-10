@@ -3,10 +3,10 @@
     <div class="relative mx-auto max-w-7xl px-4 sm:static sm:px-6 lg:px-8">
       <div class="sm:max-w-lg">
         <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-          {{heading}}
+          {{ heading }}
         </h1>
         <p *ngIf="caption" class="mt-4 text-xl text-gray-500">
-          {{caption}}
+          {{ caption }}
         </p>
       </div>
       <div>
@@ -22,56 +22,75 @@
               <div class="flex items-center space-x-6 lg:space-x-8">
                 <div class="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
                   <div
+                    *ngIf="images[0]"
                     class="h-64 w-44 overflow-hidden rounded-lg sm:opacity-0 lg:opacity-100"
                   >
                     <img
-                      src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-01.jpg"
+                      [src]="images[0]"
                       alt=""
                       class="h-full w-full object-cover object-center"
                     />
                   </div>
-                  <div class="h-64 w-44 overflow-hidden rounded-lg">
+                  <div
+                    *ngIf="images[1]"
+                    class="h-64 w-44 overflow-hidden rounded-lg"
+                  >
                     <img
-                      src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-02.jpg"
-                      alt=""
-                      class="h-full w-full object-cover object-center"
-                    />
-                  </div>
-                </div>
-                <div class="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
-                  <div class="h-64 w-44 overflow-hidden rounded-lg">
-                    <img
-                      src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-03.jpg"
-                      alt=""
-                      class="h-full w-full object-cover object-center"
-                    />
-                  </div>
-                  <div class="h-64 w-44 overflow-hidden rounded-lg">
-                    <img
-                      src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-04.jpg"
-                      alt=""
-                      class="h-full w-full object-cover object-center"
-                    />
-                  </div>
-                  <div class="h-64 w-44 overflow-hidden rounded-lg">
-                    <img
-                      src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-05.jpg"
+                      [src]="images[1]"
                       alt=""
                       class="h-full w-full object-cover object-center"
                     />
                   </div>
                 </div>
                 <div class="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
-                  <div class="h-64 w-44 overflow-hidden rounded-lg">
+                  <div
+                    *ngIf="images[2]"
+                    class="h-64 w-44 overflow-hidden rounded-lg"
+                  >
                     <img
-                      src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-06.jpg"
+                      [src]="images[2]"
                       alt=""
                       class="h-full w-full object-cover object-center"
                     />
                   </div>
-                  <div class="h-64 w-44 overflow-hidden rounded-lg">
+                  <div
+                    *ngIf="images[3]"
+                    class="h-64 w-44 overflow-hidden rounded-lg"
+                  >
                     <img
-                      src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-07.jpg"
+                      [src]="images[3]"
+                      alt=""
+                      class="h-full w-full object-cover object-center"
+                    />
+                  </div>
+                  <div
+                    *ngIf="images[4]"
+                    class="h-64 w-44 overflow-hidden rounded-lg"
+                  >
+                    <img
+                      [src]="images[4]"
+                      alt=""
+                      class="h-full w-full object-cover object-center"
+                    />
+                  </div>
+                </div>
+                <div class="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
+                  <div
+                    *ngIf="images[5]"
+                    class="h-64 w-44 overflow-hidden rounded-lg"
+                  >
+                    <img
+                      [src]="images[5]"
+                      alt=""
+                      class="h-full w-full object-cover object-center"
+                    />
+                  </div>
+                  <div
+                    *ngIf="images[6]"
+                    class="h-64 w-44 overflow-hidden rounded-lg"
+                  >
+                    <img
+                      [src]="images[6]"
                       alt=""
                       class="h-full w-full object-cover object-center"
                     />
@@ -85,7 +104,7 @@
             *ngIf="buttonText"
             href="#"
             class="inline-block rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-center font-medium text-white hover:bg-indigo-700"
-            >{{buttonText}}</a
+            >{{ buttonText }}</a
           >
         </div>
       </div>

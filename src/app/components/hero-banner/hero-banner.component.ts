@@ -13,5 +13,6 @@ export class HeroBannerComponent {
   @Input() heading : string = "";
   @Input() caption !: string;
   @Input() buttonText : string | null = null;
+  @Input() images : string[] = [];
 
 }
