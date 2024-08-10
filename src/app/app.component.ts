@@ -1,16 +1,29 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
 import { HeroBannerComponent } from './components/hero-banner/hero-banner.component';
+import { CollectionsComponent } from './components/collections/collections.component';
+import { CollectionsService } from './services/collections.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'edu-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, HeroBannerComponent],
+  imports: [
+    RouterOutlet,
+    HeaderComponent,
+    HeroBannerComponent,
+    CollectionsComponent,
+    CommonModule,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
 export class AppComponent {
+  private _collectionService = inject(CollectionsService);
+
+  collectionList = this._collectionService.collections;
+
   images: string[] = [
     'https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-01.jpg',
     'https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-02.jpg',
@@ -26,9 +39,7 @@ export class AppComponent {
     'https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-02.jpg',
   ];
 
-  buttonClickedForSummerCollection(){
+  buttonClickedForSummerCollection() {
     console.log('User has clicked the summer collection button');
   }
-
-
 }
