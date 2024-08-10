@@ -25,4 +25,10 @@ export class AppComponent {
     'https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-01.jpg',
     'https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-02.jpg',
   ];
+
+  buttonClickedForSummerCollection(){
+    console.log('User has clicked the summer collection button');
+  }
+
+
 }

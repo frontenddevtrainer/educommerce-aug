@@ -100,12 +100,13 @@
             </div>
           </div>
 
-          <a
+          <button
             *ngIf="buttonText"
-            href="#"
             class="inline-block rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-center font-medium text-white hover:bg-indigo-700"
-            >{{ buttonText }}</a
-          >
+            (click)="handleButtonClick()"
+            >
+            {{ buttonText }}
+          </button>
         </div>
       </div>
     </div>
