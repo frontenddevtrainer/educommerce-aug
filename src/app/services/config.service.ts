@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class ConfigService {
-  constructor() {}
 
-  POSTS_URL: string = 'https://jsonplaceholder.typicode.com/posts';
+  API_BASE_URL          = "http://localhost:5500";
+  API_COLLECTIONS_URL   = `${this.API_BASE_URL}/collections`;
+  API_PRODUCT_URL       = `${this.API_BASE_URL}/products`;
+
 }

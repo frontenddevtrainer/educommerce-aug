@@ -1,5 +1,8 @@
-import { Component, inject } from '@angular/core';
-import { CollectionsService, ICollection } from '../../services/collections.service';
+import { Component, inject, Input } from '@angular/core';
+import {
+  CollectionsService,
+  ICollection,
+} from '../../services/collections.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -10,12 +13,5 @@ import { CommonModule } from '@angular/common';
   styleUrl: './collections.component.css',
 })
 export class CollectionsComponent {
-
-  private _collectionsService = inject(CollectionsService);
-
-  // constructor(private _collections: CollectionsService) {}
-
-  collectionList : ICollection[] = this._collectionsService.collections
-
-
+  @Input() collections: ICollection[] | null = [];
 }

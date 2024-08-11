@@ -34,4 +34,4 @@
   [images]="images"
 ></edu-hero-banner> -->
 
-<edu-collections></edu-collections>
+<edu-collections [collections]="$listing | async"></edu-collections>

@@ -1,4 +1,7 @@
-import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { inject, Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+import { ConfigService } from './config.service';
 
 export interface ICollection {
   category: string;
@@ -10,26 +13,18 @@ export interface ICollection {
   providedIn: 'root',
 })
 export class CollectionsService {
-  constructor() {}
+  _http = inject(HttpClient);
+  _config = inject(ConfigService);
 
-  collections: ICollection[] = [
-    {
-      category: 'Desk and Office',
-      heading: 'New Laptops',
-      image:
-        'https://tailwindui.com/img/ecommerce-images/home-page-02-edition-01.jpg',
-    },
-    {
-      category: 'Work and Fun',
-      heading: 'New Laptops',
-      image:
-        'https://tailwindui.com/img/ecommerce-images/home-page-02-edition-02.jpg',
-    },
-    {
-      category: 'Game Studio',
-      heading: 'New Laptops',
-      image:
-        'https://tailwindui.com/img/ecommerce-images/home-page-02-edition-03.jpg',
-    },
-  ];
+  $listing: BehaviorSubject<ICollection[]> = new BehaviorSubject<ICollection[]>(
+    []
+  );
+
+  getCollections() {
+    this._http
+      .get<ICollection[]>(this._config.API_COLLECTIONS_URL)
+      .subscribe((data) => {
+        this.$listing.next(data);
+      });
+  }
 }
