@@ -20,16 +20,18 @@ export class CollectionsService {
     ICollection[] | null
   >([]);
 
+  $loading: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+
   getCollections() {
     this._http
       .get<ICollection[]>(this._config.API_COLLECTIONS_URL)
       .pipe(
-        tap((response: any) => {
-          if (response.status !== 200) {
-            console.log("API Error: Status not 200")
-            throw new Error('status is not 200');
-          }
-        }),
+        // tap((response: any) => {
+        //   if (response.status !== 200) {
+        //     console.log('API Error: Status not 200');
+        //     throw new Error('status is not 200');
+        //   }
+        // }),
         catchError((error) => {
           console.log(`API Error: ${error.message || error}`);
           return of(null);
@@ -38,5 +40,13 @@ export class CollectionsService {
       .subscribe((data) => {
         this.$listing.next(data);
       });
+  }
+
+  createCollection(collection: ICollection) {
+    this.$loading.next(true);
+    this._http.post(this._config.API_COLLECTIONS_URL, collection).subscribe((data)=>{
+      this.$loading.next(false);
+      this.getCollections();
+    })
   }
 }

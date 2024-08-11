@@ -1,5 +1,5 @@
 {
-  collectiondadasdada: [
+  collections: [
     {
       id: 1,
       category: "Desk and Office",
@@ -17,6 +17,12 @@
       category: "Game Studio",
       heading: "New Laptops",
       image: "https://tailwindui.com/img/ecommerce-images/home-page-02-edition-03.jpg",
+    },
+    {
+      id: "90f8",
+      category: "Edu new collection",
+      heading: "Demo collection ",
+      image: "https://tailwindui.com/img/ecommerce-images/home-page-02-edition-01.jpg",
     },
   ],
 }

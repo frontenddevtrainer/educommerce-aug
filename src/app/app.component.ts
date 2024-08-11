@@ -5,6 +5,7 @@ import { HeroBannerComponent } from './components/hero-banner/hero-banner.compon
 import { CollectionsComponent } from './components/collections/collections.component';
 import { CollectionsService } from './services/collections.service';
 import { CommonModule } from '@angular/common';
+import { CreateCollectionComponent } from "./components/forms/create-collection/create-collection.component";
 
 @Component({
   selector: 'edu-root',
@@ -15,7 +16,8 @@ import { CommonModule } from '@angular/common';
     HeroBannerComponent,
     CollectionsComponent,
     CommonModule,
-  ],
+    CreateCollectionComponent
+],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
@@ -24,7 +26,6 @@ export class AppComponent implements OnInit{
   private _collectionService = inject(CollectionsService);
 
   $listing = this._collectionService.$listing;
-
 
   ngOnInit(): void {
     this._collectionService.getCollections();

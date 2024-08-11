@@ -1,0 +1,17 @@
+<form [formGroup]="form" (ngSubmit)="addCollection()">
+  <p>
+    <label>Collection Name</label>
+    <input formControlName="category" type="text" />
+  </p>
+
+  <p>
+    <label>Collection Heading</label>
+    <input formControlName="heading" type="text" />
+  </p>
+
+  <p>
+    <label>Collection Image</label>
+    <input formControlName="image" type="text" />
+  </p>
+  <button type="submit">Add Collection</button>
+</form>
