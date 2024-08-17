@@ -1,11 +1,12 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CollectionsService } from '../../../services/collections.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'edu-create-collection',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './create-collection.component.html',
   styleUrl: './create-collection.component.css',
 })
@@ -21,7 +22,12 @@ export class CreateCollectionComponent implements OnInit {
       heading: [''],
       image: [''],
       icon: [''],
+      email: ['', [Validators.required, Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/), Validators.pattern(/^[0-1]$/)]],
     });
+
+    this.form.get("email")?.valueChanges.subscribe(()=>{
+        console.log(this.form.get("email"));
+    })
 
     this.form.get("image")?.valueChanges.subscribe((value)=>{
       const iconControl = this.form.get("icon");
@@ -39,4 +45,9 @@ export class CreateCollectionComponent implements OnInit {
     console.log(this.form);
     // this._collections.createCollection(this.form.value)
   }
+
+  get emailControl() : AbstractControl | null{
+    return this.form.get("email");
+  }
+
 }

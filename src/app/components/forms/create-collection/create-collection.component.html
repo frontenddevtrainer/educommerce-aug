@@ -1,21 +1,49 @@
 <form [formGroup]="form" (ngSubmit)="addCollection()">
   <p>
     <label>Collection category</label>
-    <input class="border-2 border-sky-950" formControlName="category" type="text" />
+    <input
+      class="border-2 border-sky-950"
+      formControlName="category"
+      type="text"
+    />
   </p>
 
   <p>
     <label>Collection Heading</label>
-    <input class="border-2 border-sky-950" formControlName="heading" type="text" />
+    <input
+      class="border-2 border-sky-950"
+      formControlName="heading"
+      type="text"
+    />
   </p>
 
   <p>
     <label>Collection Image</label>
-    <input class="border-2 border-sky-950" formControlName="image" type="text" />
+    <input
+      class="border-2 border-sky-950"
+      formControlName="image"
+      type="text"
+    />
   </p>
   <p>
     <label>Collection Icon</label>
     <input class="border-2 border-sky-950" formControlName="icon" type="text" />
+  </p>
+  <p>
+    <label>User Email</label>
+    <input
+      class="border-2 border-sky-950"
+      formControlName="email"
+      type="text"
+    />
+    <span
+      *ngIf="emailControl && emailControl?.errors?.['required'] && emailControl.touched"
+      >This is required</span
+    >
+    <span
+      *ngIf="emailControl && emailControl?.errors?.['pattern'] && emailControl.touched"
+      >Email format is not correct.</span
+    >
   </p>
   <button type="submit">Add Collection</button>
 </form>
