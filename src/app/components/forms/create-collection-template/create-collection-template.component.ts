@@ -1,19 +1,20 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'edu-create-collection-template',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './create-collection-template.component.html',
   styleUrl: './create-collection-template.component.css',
 })
 export class CreateCollectionTemplateComponent {
 
   formData = {
-    name : "Tech",
-    heading: "Electronics",
-    image: "http://placeholderimage.com"
+    name : "",
+    heading: "",
+    image: ""
   }
 
   addCollection(form: any) {

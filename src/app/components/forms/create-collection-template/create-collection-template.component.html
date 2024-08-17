@@ -1,17 +1,51 @@
-<form #createCollectionForm="ngForm" (ngSubmit)="addCollection(createCollectionForm)">
+<form
+  #createCollectionForm="ngForm"
+  (ngSubmit)="addCollection(createCollectionForm)"
+>
   <p>
     <label>Collection Name</label>
-    <input type="text" name="name" #name="ngModel" [(ngModel)]="formData.name" />
+    <input
+      required
+      type="text"
+      name="name"
+      #name="ngModel"
+      [(ngModel)]="formData.name"
+    />
+    <span *ngIf="name.invalid && name.touched" class="text-red-800">This is required</span>
   </p>
 
   <p>
     <label>Collection Heading</label>
-    <input type="text" name="heading" #heading="ngModel" [(ngModel)]="formData.heading"/>
+    <input
+      required
+      type="text"
+      name="heading"
+      #heading="ngModel"
+      [(ngModel)]="formData.heading"
+    />
+    <span *ngIf="heading.invalid && heading.touched" class="text-red-800">This is required</span>
   </p>
 
   <p>
     <label>Collection Image</label>
-    <input type="text" name="image" #image="ngModel" [(ngModel)]="formData.image"/>
+    <input
+      type="text"
+      name="image"
+      #image="ngModel"
+      [(ngModel)]="formData.image"
+    />
+
+    <!-- Touched: {{name.touched}}
+    Dirty: {{name.dirty}}
+    Pristine: {{name.pristine}} -->
   </p>
-  <button type="submit">Add Collection</button>
+  <button
+    
+    [ngStyle]="{ backgroundColor: createCollectionForm.invalid ? 'red' : '' }"
+    type="submit"
+  >
+    Add Collection
+  </button>
 </form>
+
+<!-- [disabled]="createCollectionForm.invalid" -->
