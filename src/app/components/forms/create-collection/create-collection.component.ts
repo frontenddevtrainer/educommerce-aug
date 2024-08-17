@@ -22,7 +22,7 @@ export class CreateCollectionComponent implements OnInit {
       heading: [''],
       image: [''],
       icon: [''],
-      email: ['', [Validators.required, Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/), Validators.pattern(/^[0-1]$/)]],
+      email: ['', [Validators.required, Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)]],
     });
 
     this.form.get("email")?.valueChanges.subscribe(()=>{
