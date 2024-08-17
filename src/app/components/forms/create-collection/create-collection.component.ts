@@ -2,6 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CollectionsService } from '../../../services/collections.service';
 import { CommonModule } from '@angular/common';
+import { emailValidator } from '../../../validators/email.validator';
 
 @Component({
   selector: 'edu-create-collection',
@@ -22,7 +23,7 @@ export class CreateCollectionComponent implements OnInit {
       heading: [''],
       image: [''],
       icon: [''],
-      email: ['', [Validators.required, Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)]],
+      email: ['', [Validators.required, emailValidator]],
     });
 
     this.form.get("email")?.valueChanges.subscribe(()=>{
