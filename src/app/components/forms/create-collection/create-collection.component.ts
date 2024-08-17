@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CollectionsService } from '../../../services/collections.service';
 
 @Component({
@@ -17,13 +17,26 @@ export class CreateCollectionComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      category: [''],
+      category: ['', [Validators.required, Validators.max(10)]],
       heading: [''],
       image: [''],
+      icon: [''],
     });
+
+    this.form.get("image")?.valueChanges.subscribe((value)=>{
+      const iconControl = this.form.get("icon");
+      if(value) {
+        iconControl?.setValidators([Validators.required])
+      }
+      else {
+        iconControl?.clearValidators();
+      }
+      iconControl?.updateValueAndValidity();
+    })
   }
 
   addCollection(){
-    this._collections.createCollection(this.form.value)
+    console.log(this.form);
+    // this._collections.createCollection(this.form.value)
   }
 }
