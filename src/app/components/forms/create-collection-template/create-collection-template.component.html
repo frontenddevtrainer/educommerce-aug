@@ -1,0 +1,17 @@
+<form #createCollectionForm="ngForm" (ngSubmit)="addCollection(createCollectionForm)">
+  <p>
+    <label>Collection Name</label>
+    <input type="text" name="name" #name="ngModel" [(ngModel)]="formData.name" />
+  </p>
+
+  <p>
+    <label>Collection Heading</label>
+    <input type="text" name="heading" #heading="ngModel" [(ngModel)]="formData.heading"/>
+  </p>
+
+  <p>
+    <label>Collection Image</label>
+    <input type="text" name="image" #image="ngModel" [(ngModel)]="formData.image"/>
+  </p>
+  <button type="submit">Add Collection</button>
+</form>
