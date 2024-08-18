@@ -45,5 +45,24 @@
       >Email format is not correct.</span
     >
   </p>
+
+  <p>
+    <label>Password</label>
+    <input
+      class="border-2 border-sky-950"
+      type="text"
+      formControlName="password"
+    />
+  </p>
+
+  <p>
+    <label>Confirm Password</label>
+    <input
+      class="border-2 border-sky-950"
+      type="text"
+      formControlName="confirmPassword"
+    />
+  </p>
+  {{ passworldControl?.errors | json }}
   <button type="submit">Add Collection</button>
 </form>
