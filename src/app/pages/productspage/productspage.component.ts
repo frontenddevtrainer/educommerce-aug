@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { HighlightDirective } from '../../directives/highlight.directive';
 
 @Component({
   selector: 'edu-productspage',
   standalone: true,
-  imports: [],
+  imports: [HighlightDirective],
   templateUrl: './productspage.component.html',
   styleUrl: './productspage.component.css'
 })
