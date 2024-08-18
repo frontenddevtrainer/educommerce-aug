@@ -1,6 +1,7 @@
 <form
   #createCollectionForm="ngForm"
   (ngSubmit)="addCollection(createCollectionForm)"
+  [match]="['password', 'confirmPassword']"
 >
   <p>
     <label>Collection Name</label>
@@ -11,7 +12,9 @@
       #name="ngModel"
       [(ngModel)]="formData.name"
     />
-    <span *ngIf="name.invalid && name.touched" class="text-red-800">This is required</span>
+    <span *ngIf="name.invalid && name.touched" class="text-red-800"
+      >This is required</span
+    >
   </p>
 
   <p>
@@ -23,7 +26,9 @@
       #heading="ngModel"
       [(ngModel)]="formData.heading"
     />
-    <span *ngIf="heading.invalid && heading.touched" class="text-red-800">This is required</span>
+    <span *ngIf="heading.invalid && heading.touched" class="text-red-800"
+      >This is required</span
+    >
   </p>
 
   <p>
@@ -39,8 +44,31 @@
     Dirty: {{name.dirty}}
     Pristine: {{name.pristine}} -->
   </p>
+
+  <p>
+    <label>Password</label>
+    <input
+      class="border-2 border-sky-950"
+      type="text"
+      #password="ngModel"
+      name="password"
+      [(ngModel)]="formData.password"
+    />
+  </p>
+
+  <p>
+    <label>Confirm Password</label>
+    <input
+      class="border-2 border-sky-950"
+      type="text"
+      #confirmPassword="ngModel"
+      name="confirmPassword"
+      [(ngModel)]="formData.confirmPassword"
+    />
+  </p>
+  {{ password?.errors | json }}
+
   <button
-    
     [ngStyle]="{ backgroundColor: createCollectionForm.invalid ? 'red' : '' }"
     type="submit"
   >

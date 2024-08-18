@@ -1,4 +1,10 @@
-import { AbstractControl, ValidationErrors } from '@angular/forms';
+import { Directive, Input } from '@angular/core';
+import {
+  AbstractControl,
+  NG_VALIDATORS,
+  ValidationErrors,
+  Validator,
+} from '@angular/forms';
 
 export function match(controlOne: string, controlTwo: string) {
   return function (form: AbstractControl): ValidationErrors | null {
@@ -17,4 +23,23 @@ export function match(controlOne: string, controlTwo: string) {
       return null;
     }
   };
+}
+
+@Directive({
+  selector: '[match]',
+  standalone: true,
+  providers: [
+    {
+      provide: NG_VALIDATORS,
+      useExisting: MatchValidatorDirective,
+      multi: true,
+    },
+  ],
+})
+export class MatchValidatorDirective implements Validator {
+  @Input('match') controlName: string[] = [];
+
+  validate(form: AbstractControl): ValidationErrors | null {
+    return match(this.controlName[0], this.controlName[1])(form);
+  }
 }
