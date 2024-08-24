@@ -4,13 +4,13 @@
       id: 1,
       name: "Macbook",
     },
-     {
+    {
       id: 2,
-      name: "Macbook",
+      name: "Ipad",
     },
-     {
+    {
       id: 3,
-      name: "Macbook",
+      name: "iPhone 15",
     },
   ],
   collections: [
