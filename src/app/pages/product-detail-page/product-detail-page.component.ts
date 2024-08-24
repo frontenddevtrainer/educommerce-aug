@@ -1,6 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductsService } from '../../services/products.service';
+import { CommonModule } from '@angular/common';
 
 export interface IProduct {
   id: string;
@@ -10,7 +11,7 @@ export interface IProduct {
 @Component({
   selector: 'edu-product-detail-page',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './product-detail-page.component.html',
   styleUrl: './product-detail-page.component.css',
 })

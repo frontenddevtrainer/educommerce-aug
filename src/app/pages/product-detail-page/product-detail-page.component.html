@@ -1,2 +1,5 @@
-{{ product?.id }}
-{{ product?.name }}
+<div *ngIf="product === null">Loading...</div>
+<div *ngIf="product !== null">
+  {{ product?.id }}
+  {{ product?.name }}
+</div>
