@@ -1,4 +1,18 @@
 {
+  products: [
+    {
+      id: 1,
+      name: "Macbook",
+    },
+     {
+      id: 2,
+      name: "Macbook",
+    },
+     {
+      id: 3,
+      name: "Macbook",
+    },
+  ],
   collections: [
     {
       id: 1,
