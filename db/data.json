@@ -1,0 +1,43 @@
+{
+  "users": [],
+  "products": [
+    {
+      "id": 1,
+      "name": "Macbook"
+    },
+    {
+      "id": 2,
+      "name": "Ipad"
+    },
+    {
+      "id": 3,
+      "name": "iPhone 15"
+    }
+  ],
+  "collections": [
+    {
+      "id": 1,
+      "category": "Desk and Office",
+      "heading": "New Laptops",
+      "image": "https://tailwindui.com/img/ecommerce-images/home-page-02-edition-01.jpg"
+    },
+    {
+      "id": 2,
+      "category": "Work and Fun",
+      "heading": "New Laptops",
+      "image": "https://tailwindui.com/img/ecommerce-images/home-page-02-edition-02.jpg"
+    },
+    {
+      "id": 3,
+      "category": "Game Studio",
+      "heading": "New Laptops",
+      "image": "https://tailwindui.com/img/ecommerce-images/home-page-02-edition-03.jpg"
+    },
+    {
+      "id": "90f8",
+      "category": "Edu new collection",
+      "heading": "Demo collection ",
+      "image": "https://tailwindui.com/img/ecommerce-images/home-page-02-edition-01.jpg"
+    }
+  ]
+}

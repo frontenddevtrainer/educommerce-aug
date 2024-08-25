@@ -13,6 +13,6 @@ export class ProductsService {
   constructor() {}
 
   getProductById(id: string) {
-    return this._http.get<IProduct>(`${this._config.API_PRODUCT_URL}/${id}`);
+    return this._http.get<IProduct>(`${this._config.API_PRODUCT_URL}/${id}`).subscribe((data)=>{})
   }
 }
