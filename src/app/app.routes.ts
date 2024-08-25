@@ -19,11 +19,12 @@ export const routes: Routes = [
   {
     path: 'products/:id',
     component: ProductDetailPageComponent,
+    canActivate: [authGuard]
   },
   {
     // /admin/create-collection
     path: 'admin/create-collection',
     component: CreateCollectionPageComponent,
-    canActivate: [authGuard]
+    canActivate: [authGuard, adminguard]
   },
 ];
