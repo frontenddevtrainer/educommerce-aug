@@ -3,11 +3,17 @@ import { HeroBannerComponent } from '../../components/hero-banner/hero-banner.co
 import { CollectionsComponent } from '../../components/collections/collections.component';
 import { CommonModule } from '@angular/common';
 import { CollectionsService } from '../../services/collections.service';
+import { RegisterUserComponent } from '../../components/forms/register-user/register-user.component';
 
 @Component({
   selector: 'edu-homepage',
   standalone: true,
-  imports: [CommonModule, HeroBannerComponent, CollectionsComponent],
+  imports: [
+    CommonModule,
+    HeroBannerComponent,
+    CollectionsComponent,
+    RegisterUserComponent,
+  ],
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.css',
 })
