@@ -25,6 +25,6 @@ export const routes: Routes = [
     // /admin/create-collection
     path: 'admin/create-collection',
     component: CreateCollectionPageComponent,
-    canActivate: [authGuard, adminguard]
+    canActivate: [authGuard] // add adminguard here.
   },
 ];
