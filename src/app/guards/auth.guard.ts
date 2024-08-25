@@ -2,7 +2,7 @@ import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
 
 export const authGuard: CanActivateFn = (route, state) => {
-  const allowAccess = false;
+  const allowAccess = window.sessionStorage.getItem("auth-token");
 
   if (allowAccess) {
     return true;

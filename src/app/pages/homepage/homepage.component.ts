@@ -4,6 +4,7 @@ import { CollectionsComponent } from '../../components/collections/collections.c
 import { CommonModule } from '@angular/common';
 import { CollectionsService } from '../../services/collections.service';
 import { RegisterUserComponent } from '../../components/forms/register-user/register-user.component';
+import { LoginFormComponent } from '../../components/forms/login-form/login-form.component';
 
 @Component({
   selector: 'edu-homepage',
@@ -13,6 +14,7 @@ import { RegisterUserComponent } from '../../components/forms/register-user/regi
     HeroBannerComponent,
     CollectionsComponent,
     RegisterUserComponent,
+    LoginFormComponent
   ],
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.css',

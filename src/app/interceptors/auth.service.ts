@@ -31,11 +31,17 @@ export class AuthService implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    const cloneReq = req.clone({
-      setHeaders: {
-        auth: '53453245435345.53453534553535345.35435',
-      },
-    });
-    return next.handle(cloneReq);
+    const token = window.sessionStorage.getItem('auth-token');
+
+    if (token) {
+      const cloneReq = req.clone({
+        setHeaders: {
+          auth: token,
+        },
+      });
+      return next.handle(cloneReq);
+    }
+
+    return next.handle(req);
   }
 }
