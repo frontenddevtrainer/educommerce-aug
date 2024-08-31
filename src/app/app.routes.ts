@@ -7,6 +7,10 @@ import { authGuard } from './guards/auth.guard';
 import { adminGuard } from './guards/admin.guard';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
 import { HolidaysComponent } from './pages/holidays/holidays.component';
+import { Holidays2021Component } from './pages/holidays-2021/holidays-2021.component';
+import { Holidays2022Component } from './pages/holidays-2022/holidays-2022.component';
+import { Holidays2023Component } from './pages/holidays-2023/holidays-2023.component';
+import { Holidays2024Component } from './pages/holidays-2024/holidays-2024.component';
 
 export const routes: Routes = [
   {
@@ -45,6 +49,24 @@ export const routes: Routes = [
   {
     path: 'holidays',
     component: HolidaysComponent,
+    children: [
+      {
+        path: '2021',
+        component: Holidays2021Component,
+      },
+      {
+        path: '2022',
+        component: Holidays2022Component,
+      },
+      {
+        path: '2023',
+        component: Holidays2023Component,
+      },
+      {
+        path: '2024',
+        component: Holidays2024Component,
+      },
+    ],
   },
   {
     path: '**',
