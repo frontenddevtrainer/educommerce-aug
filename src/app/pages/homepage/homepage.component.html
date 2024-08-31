@@ -38,3 +38,46 @@
 
 <h1>Login Form</h1>
 <edu-login-form></edu-login-form>
+
+{{ homepagePermissons | json }}
+
+<button
+  [ngClass]="{
+    'bg-blue-600': homepagePermissons.C,
+    'bg-gray-600': !homepagePermissons.C
+  }"
+  class="border border-gray-100 p-2"
+  [disabled]="!homepagePermissons.C"
+>
+  Create
+</button>
+<button
+[ngClass]="{
+  'bg-blue-600': homepagePermissons.R,
+  'bg-gray-600': !homepagePermissons.R
+}"
+  class="border border-gray-100 p-2"
+  [disabled]="!homepagePermissons.R"
+>
+  Read
+</button>
+<button
+[ngClass]="{
+  'bg-blue-600': homepagePermissons.U,
+  'bg-gray-600': !homepagePermissons.U
+}"
+  class="border border-gray-100 p-2"
+  [disabled]="!homepagePermissons.U"
+>
+  Update
+</button>
+<button
+[ngClass]="{
+  'bg-blue-600': homepagePermissons.D,
+  'bg-gray-600': !homepagePermissons.D
+}"
+  class="border border-gray-100 p-2"
+  [disabled]="!homepagePermissons.D"
+>
+  Delete
+</button>

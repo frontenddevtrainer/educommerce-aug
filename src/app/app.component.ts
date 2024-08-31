@@ -6,6 +6,7 @@ import { CollectionsComponent } from './components/collections/collections.compo
 import { CollectionsService } from './services/collections.service';
 import { CommonModule } from '@angular/common';
 import { CreateCollectionComponent } from './components/forms/create-collection/create-collection.component';
+import { UserService } from './services/user.service';
 
 @Component({
   selector: 'edu-root',
@@ -21,4 +22,10 @@ import { CreateCollectionComponent } from './components/forms/create-collection/
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-export class AppComponent {}
+export class AppComponent implements OnInit {
+  private _user = inject(UserService);
+
+  ngOnInit(): void {
+    this._user.whoiam();
+  }
+}

@@ -22,7 +22,9 @@ export class LoginFormComponent {
     this.http
       .post('http://localhost:5500/login', this.loginForm.value)
       .subscribe((data: any) => {
-        // if user is admin - sessionStorage.setItem admin : true
+        if (data?.user?.admin) {
+          window.sessionStorage.setItem('admin', data.user.admin);
+        }
         window.sessionStorage.setItem('auth-token', data.accessToken);
       });
   }

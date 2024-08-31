@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { CollectionsService } from '../../services/collections.service';
 import { RegisterUserComponent } from '../../components/forms/register-user/register-user.component';
 import { LoginFormComponent } from '../../components/forms/login-form/login-form.component';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'edu-homepage',
@@ -14,18 +15,25 @@ import { LoginFormComponent } from '../../components/forms/login-form/login-form
     HeroBannerComponent,
     CollectionsComponent,
     RegisterUserComponent,
-    LoginFormComponent
+    LoginFormComponent,
   ],
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.css',
 })
 export class HomepageComponent implements OnInit {
   private _collectionService = inject(CollectionsService);
+  private _user = inject(UserService);
+
+  homepagePermissons: any = {};
 
   $listing = this._collectionService.$listing;
 
   ngOnInit(): void {
     this._collectionService.getCollections();
+
+    this._user.user.subscribe(({ permissions }) => {
+      this.homepagePermissons = permissions?.homepage;
+    });
   }
 
   yearlyProfit: number = 423420594327587.44234;

@@ -4,19 +4,28 @@
       "email": "dadas@dasda.das",
       "password": "$2a$10$gaFRiO2GFMd3ZZBxd3lVYOaGHKW1eyl2EOaUPVoweSDoEcanxm6Pq",
       "id": 1,
-      "admin" : true
+      "admin": true
     },
     {
       "email": "ddasdasd@asdasd.dsd",
       "password": "$2a$10$jj/YmJbhyq/f5OD4EOnnE.Gkx8z8AoVCgxueCPKO.qjUOoAc8yRcK",
       "id": 2,
-      "admin" : false
+      "admin": false
     },
     {
       "email": "abc@def.com",
       "password": "$2a$10$wjVAQ5BBWH0cSUJhpPesjOVKOQ6uzKUfVz30nabblq/3bUWB4Qnam",
       "id": 3,
-      "admin" : true
+      "admin": true,
+      "permissions": {
+        "homepage": { "C": true, "R": true, "U": false, "D": false },
+        "products": { "C": false, "R": true, "U": false, "D": false }
+      }
+    },
+    {
+      "email": "notadmin@example.com",
+      "password": "$2a$10$D/Vsf.KChkKSDSdlNf68weDAFNr/Oi9Ck2L6kEhXz3Jz9Xu9gZ60y",
+      "id": 4
     }
   ],
   "products": [
